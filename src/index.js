@@ -4,12 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // type a task into the field
 let taskform = document.querySelector('#create-task-form');
-
-let listItems = document.getElementById('tasks');
-//  submit the task 
+let listItems = document.querySelector('#tasks');
+//  add an event listener
 taskform.addEventListener("submit", addTasks);
 
-
+// create the function on the event listener 
 function addTasks(e) {
   let text = document.createElement('li');
 
@@ -21,13 +20,30 @@ function addTasks(e) {
   if (priority === 'yellow') {text.style.color = 'yellow'}
   if (priority === 'green') {text.style.color = 'green'}
   
-  text.addEventListener("click", function (e) {
+  text.addEventListener("dblclick", function (e) {
     e.target.remove();
   });
-  text.textContent = target;
 
+ 
+
+  text.textContent = target;
+  // create a new button
+  const edit = document.createElement("button")
+  // add the button text
+  edit.innerText = "Edit this item"
+  // add an event listener when clicked
+  edit.addEventListener('click', function(e) {
+    // create a new edit form 
+    const newForm = document.createElement('form')
+    // attach this to 
+    newForm.append(document.createElement('input'))
+    text.append(newForm)
+  })
+  text.append(edit);
+  
   listItems.append(text);
   document.querySelector("#create-task-form").reset()
 
 }
+
 
