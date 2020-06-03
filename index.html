@@ -15,11 +15,13 @@
       <br>
       <label for="new-task-priority">Task priority:</label>
       <select name="new-task-priority" id="new-task-priority">
-        <option value="red">High</option>
-        <option value="orange">Medium</option>
-        <option value="green">Low</option>
+        <option value="2">High</option>
+        <option value="1">Medium</option>
+        <option value="0">Low</option>
       </select>
-
+      <br>
+      <label for="new-task-due-date">Due date:</label>
+      <input type="date" id="new-task-due-date" name="new-task-due-date">
       <br>
 
       <input type="submit" value="Create New Task">
@@ -28,7 +30,7 @@
     <div id="list">
       <h2>My Todos</h2>
 
-      <table>
+      <!-- <table>
         <tr>
           <th>High Priority</th>
           <th>Medium Priority</th>
@@ -40,6 +42,16 @@
           <td><ul id="green"></ul></td>
 
         </tr>
+      </table> -->
+
+
+      <table class="sortable-table", id= "task-table">
+        <tr>
+          <th>Task</th>
+          <th>Priority</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
       </table>
       
 
@@ -50,6 +62,7 @@
     <div>
       <button id="clear-tasks">Clear Tasks</button>
     </div>
+  
 
     <script src="./src/index.js"></script>
   </div>
