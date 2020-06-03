@@ -7,11 +7,17 @@ html {
 body {
   min-height: 100%;
   min-width: 100%;
-  background: linear-gradient(pink, violet);
+  background: linear-gradient(paleturquoise, skyblue);
 }
 
 button {
-  font-size: 7px;
+  /* font-size: 20px; */
+}
+
+button.task-button{
+  font-size: 8px;
+  margin-left: 5px;
+  
 }
 
 #main-content {
