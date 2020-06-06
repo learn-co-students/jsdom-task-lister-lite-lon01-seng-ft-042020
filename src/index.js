@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  //-----------------------------------
-  // form section
-  //-----------------------------------
 
   // select the element
   const taskForForm = document.querySelector('#create-task-form');
+
+  //-----------------------------------
+  // form section
+  //-----------------------------------
 
   // add the event listener
   taskForForm.addEventListener('submit', function (event) {
@@ -29,14 +30,31 @@ document.addEventListener('DOMContentLoaded', () => {
     //add the li to the list
     taskList.appendChild(taskDOMNodeLi);
 
-    // ------------------------------------------------
-    // dropdown menu
-    // -----------------------------------------------
+    // --------------------------------------------------------------
+    // Add any event listeners you desire to have on this element
+    // -----------------------------------------------------------------
+
+
+    // Create the button to REMOVE
+    const buttonRemove = document.createElement('button');
+    buttonRemove.innerHTML = 'x';
+    // append somewhere
+    taskDOMNodeLi.appendChild(buttonRemove);
+    // add event handler - remove
+    buttonRemove.addEventListener('click', function () {
+      taskDOMNodeLi.remove();
+      alert('You deleted this task');
+    });
+
+
+// ------------------------------------------------
+// dropdown menu section
+// -----------------------------------------------
 
     function addOptionSelect() {
-      const optionList = document.querySelector('#create-task-form')
+      const dropdownMenu = document.querySelector('#create-task-form')
       const select = makeOptionSelect()
-      optionList.appendChild(select);
+      dropdownMenu.appendChild(select);
     }
 
     function makeOptionSelect() {
@@ -44,26 +62,33 @@ document.addEventListener('DOMContentLoaded', () => {
       select.className = 'option-select';
 
       const option1 = document.createElement('option');
-
       option1.textContent = 'high priority';
-      // option1.text = optionArray[0];
+      console.log(option1)
 
       const option2 = document.createElement('option');
       option2.textContent = 'medium priority';
-      // option2.text = optionArray[1];
+      console.log(option2)
 
       const option3 = document.createElement('option');
       option3.textContent = 'low priority';
-      // option3.text = optionArray[2]
+      console.log(option3)
 
       select.appendChild(option1, select[0]);
-      select.appendChild(option1, select[1]);
-      select.appendChild(option1, select[2]);
-
+      console.log(select); 
+      select.appendChild(option2, select[1]);
+      console.log(select); 
+      select.appendChild(option3, select[2]);
+      console.log(select); 
+    
       return select;
+      
     }
 
-    // another way !!!
+    // ????????????? NEED I INVOKE THAT FUNCTION??????? YES :)
+    addOptionSelect()
+    
+
+    // another way !!!???????????? doesn't work so far
     // function makeOptionList(optionArray) {
     //   const optionArray = [
     //     'high priority',
@@ -92,26 +117,52 @@ document.addEventListener('DOMContentLoaded', () => {
     //   return div;
     // }
 
-    function addOption(optionArray) {
-      const optionList = document.querySelector('#main-content');
-    }
 
-    // --------------------------------------------------------------
-    // Add any event listeners you desire to have on this element
-    // -----------------------------------------------------------------
+// -----------------------------------------------------------------
+// determinate the color of the text in the list: red for high priority, yellow for medium, green for low
+//-----------------------------------------------------------------------------
 
-    // Create the button to remove
-    const buttonRemove = document.createElement('button');
-    buttonRemove.innerHTML = 'x';
-    // append somewhere
-    taskDOMNodeLi.appendChild(buttonRemove);
-    // add event handler - REMOVE
-    buttonRemove.addEventListener('click', function () {
-      taskDOMNodeLi.remove();
-      alert('You deleted this task');
-    });
+
+option1.addEventListener('click', function(event) {
+  changeColorText(option1);
+})
+
+option2.addEventListener('click', function(event) {
+  changeColorText(option2);
+})
+
+option3.addEventListener('click', function(event) {
+  changeColorText(option3);
+})
+
+
+    function changeColorText(option) {
+      if (option === option1) {
+        taskDOMNodeLi.style.color = "red"
+      }
+      else if (option === option2) {
+        taskDOMNodeLi.style.color = "yellow"
+      }
+     else (option === option3) 
+        taskDOMNodeLi.style.color = "green"
+      }
+
+
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /////// }
 
