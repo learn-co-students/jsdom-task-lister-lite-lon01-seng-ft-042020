@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
   // select the element
   const taskForForm = document.querySelector('#create-task-form');
 
@@ -34,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add any event listeners you desire to have on this element
     // -----------------------------------------------------------------
 
-
     // Create the button to REMOVE
     const buttonRemove = document.createElement('button');
     buttonRemove.innerHTML = 'x';
@@ -46,14 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('You deleted this task');
     });
 
-
-// ------------------------------------------------
-// dropdown menu section
-// -----------------------------------------------
+    // ------------------------------------------------
+    // dropdown menu section
+    // -----------------------------------------------
 
     function addOptionSelect() {
-      const dropdownMenu = document.querySelector('#create-task-form')
-      const select = makeOptionSelect()
+      const dropdownMenu = document.querySelector('#create-task-form');
+      const select = makeOptionSelect();
       dropdownMenu.appendChild(select);
     }
 
@@ -63,30 +60,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const option1 = document.createElement('option');
       option1.textContent = 'high priority';
-      console.log(option1)
+      console.log(option1);
 
       const option2 = document.createElement('option');
       option2.textContent = 'medium priority';
-      console.log(option2)
+      console.log(option2);
 
       const option3 = document.createElement('option');
       option3.textContent = 'low priority';
-      console.log(option3)
+      console.log(option3);
 
       select.appendChild(option1, select[0]);
-      console.log(select); 
+      console.log(select);
       select.appendChild(option2, select[1]);
-      console.log(select); 
+      console.log(select);
       select.appendChild(option3, select[2]);
-      console.log(select); 
-    
+      console.log(select);
+
       return select;
-      
     }
 
     // ????????????? NEED I INVOKE THAT FUNCTION??????? YES :)
-    addOptionSelect()
-    
+    addOptionSelect();
 
     // another way !!!???????????? doesn't work so far
     // function makeOptionList(optionArray) {
@@ -117,67 +112,45 @@ document.addEventListener('DOMContentLoaded', () => {
     //   return div;
     // }
 
+    // -----------------------------------------------------------------
+    // determinate the color of the text in the list: red for high priority, yellow for medium, green for low
+    //-----------------------------------------------------------------------------
 
-// -----------------------------------------------------------------
-// determinate the color of the text in the list: red for high priority, yellow for medium, green for low
-//-----------------------------------------------------------------------------
+    option1.addEventListener('click', function (event) {
+      changeColorText(option1);
+    });
 
+    option2.addEventListener('click', function (event) {
+      changeColorText(option2);
+    });
 
-option1.addEventListener('click', function(event) {
-  changeColorText(option1);
-})
-
-option2.addEventListener('click', function(event) {
-  changeColorText(option2);
-})
-
-option3.addEventListener('click', function(event) {
-  changeColorText(option3);
-})
-
+    option3.addEventListener('click', function (event) {
+      changeColorText(option3);
+    });
 
     function changeColorText(option) {
       if (option === option1) {
-        taskDOMNodeLi.style.color = "red"
-      }
-      else if (option === option2) {
-        taskDOMNodeLi.style.color = "yellow"
-      }
-     else (option === option3) 
-        taskDOMNodeLi.style.color = "green"
-      }
+        taskDOMNodeLi.style.color = 'red';
+      } else if (option === option2) {
+        taskDOMNodeLi.style.color = 'yellow';
+      } else option === option3;
+      taskDOMNodeLi.style.color = 'green';
+    }
 
+    // ---------------------------------------------------------
+    // implement a sorting functionality that displays the
+    // tasks ascending or descending order based on priority
+    // ---------------------------------------------------------
 
+    //-----------------------------------------------------------
+    // additional input field for date 
+    // ------------------------------------------------------------
+        const additionalInputField = document.createElement("input")
+        // additionalInputField.text = ....?
+        //
+    //-------------------------------------------------------------
+    // ability to edit task
+    //-------------------------------------------------------------
+    
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////// }
-
-// function formDropdown(option, addColor) {
-//   const div = document.createElement("div");
-// div.className = "form-dropdown";
-// const optionColor = document.createElement("option");
-// optionColor.textContent = option;
-// div.appendChild(optionColor);
-// return div;
-
-// function addColor(domNode, color) {
-//   domNode.style.background = color;
-// }
-
-// breedElementLi.addEventListener('mouseover', function (event) {
-//   changeColorBackground(breedElementLi, "salmon");
-// }
